@@ -1,7 +1,5 @@
   console.log('example')
 
-  console.log(process.argv[2])
-
   // first
   type TConcatFn = (a: string, b: string) => string
   const concat: TConcatFn = (a: string, b: string): string => a + b
