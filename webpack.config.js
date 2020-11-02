@@ -48,6 +48,16 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|ttf|otf|woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
     ],
   },
 
