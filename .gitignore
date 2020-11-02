@@ -4,3 +4,5 @@
 package-lock.json
 
 example.js
+
+/src/**/*.d.ts
