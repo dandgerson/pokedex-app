@@ -1,28 +1,62 @@
 @font-face {
-  font-family: $font-family;
+  font-family: $karla;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/Karla-Regular.ttf') format('ttf');
+  src: url('../fonts/Karla-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: $font-family;
+  font-family: $karla;
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/Karla-Italic.ttf') format('ttf');
+  src: url('../fonts/Karla-Italic.ttf') format('truetype');
 }
 @font-face {
-  font-family: $font-family;
+  font-family: $karla;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../fonts/Karla-Bold.ttf') format('ttf');
+  src: url('../fonts/Karla-Bold.ttf') format('truetype');
 }
 @font-face {
-  font-family: $font-family;
+  font-family: $karla;
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('../fonts/Karla-BoldItalic.ttf') format('ttf');
+  src: url('../fonts/Karla-BoldItalic.ttf') format('truetype');
 }
+
+
+@font-face {
+  font-family: $source-sans-pro;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/SourceSansPro-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: $source-sans-pro;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/SourceSansPro-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: $source-sans-pro;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/SourceSansPro-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: $source-sans-pro;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/SourceSansPro-BoldItalic.ttf') format('truetype');
+}
+
+// <style>
+// @import url('https://fonts.googleapis.com/css2?family=family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+// </style>

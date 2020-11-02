@@ -1,7 +1,44 @@
 $transition-props: 200ms;
 
-$font-family: 'Karla';
-// [theme-prop-staff[-alfa]]
+$karla: 'Karla';
+$source-sans-pro: 'Source Sans Pro';
 
+$stile-color: #A1A1A1;
+$grass-color: #70A83B;
+$ice-color: #76AADB;
+$fire-color: #F76545;
+$normal-color: #76AADB;
+$poison-color: #A974BC;
+$ground-color: #9B897B;
+$electric-color: #F7C545;
+
+// [theme-prop-staff[-alfa]]
+$main-color-primary: #F2B807;
+$main-color-second: #F28F16;
+$main-color-third: #F5DB13;
+$main-color-dandger: #D93E30;
+$main-color-white: #F2F2F2;
+$main-color-dark: #212121;
+
+// shadows
+$blur24-filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
+$blur20-filter: drop-shadow(4px 4px 20px rgba(1, 28, 64, 0.2));
+$blur16-box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+$blur14-filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.2));
+
+// media
+$desktop-w: 1440px;
+$desktop-h: 1024px;
+
+$tablet-w: 768px;
+$tablet-h: 1024px;
+
+$mobile-w: 375px;
+$mobile-h: 812px;
+
+// exports
 :export {
+  mainColorPrimary: $main-color-primary;
+  mainColorSecond: $main-color-second;
+  mainColorThird: $main-color-third;
 }
