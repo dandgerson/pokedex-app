@@ -9,7 +9,7 @@ import t from './main-theme.module.scss'
 import logo from '../../images/logo.svg'
 
 const Header = () => {
-  const [activeRoute, setActiveRoute] = useState('home')
+  const [activeRoute, setActiveRoute] = useState('Home')
   const routes = ['Home', 'Pokédex', 'Legendaries', 'Documentation']
 
   return (
