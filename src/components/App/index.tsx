@@ -8,11 +8,7 @@ import Header from '../Header'
 import Footer from '../Footer'
 
 const App = () => (
-  <div
-    className={cl(
-      s.root,
-      // t.root,
-    )}>
+  <div className={cl(s.root, t.root)}>
     <Header />
     <div
       style={{

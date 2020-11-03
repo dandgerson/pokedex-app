@@ -1,24 +1,26 @@
-$transition-props: 200ms;
+$transition-props: 200ms linear;
 
 $karla: 'Karla';
 $source-sans-pro: 'Source Sans Pro';
 
-$stile-color: #A1A1A1;
-$grass-color: #70A83B;
-$ice-color: #76AADB;
-$fire-color: #F76545;
-$normal-color: #76AADB;
-$poison-color: #A974BC;
-$ground-color: #9B897B;
-$electric-color: #F7C545;
+$stile-color: #a1a1a1;
+$grass-color: #70a83b;
+$ice-color: #76aadb;
+$fire-color: #f76545;
+$normal-color: #76aadb;
+$poison-color: #a974bc;
+$ground-color: #9b897b;
+$electric-color: #f7c545;
 
 // [theme-prop-staff[-alfa]]
-$main-color-primary: #F2B807;
-$main-color-second: #F28F16;
-$main-color-third: #F5DB13;
-$main-color-dandger: #D93E30;
-$main-color-white: #F2F2F2;
+$main-color-primary: #f2b807;
+$main-color-second: #f28f16;
+$main-color-third: #f5db13;
+$main-color-dandger: #d93e30;
+$main-color-white: #f2f2f2;
 $main-color-dark: #212121;
+
+$yellow-gradient: linear-gradient(180deg, #{$main-color-third} 0%, #{$main-color-primary} 100%);
 
 // shadows
 $blur24-filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));

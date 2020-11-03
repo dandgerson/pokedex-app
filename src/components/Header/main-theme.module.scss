@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.root {
+  background-color: $main-color-third;
+  box-shadow: $blur16-box-shadow;
+}
+
+.nav {
+  &_item {
+    border-bottom: 3px solid transparent;
+    transition: border-color $transition-props;
+
+    &-active {
+      border-color: $main-color-dark;
+    }
+
+    &:hover {
+      border-color: $main-color-dark;
+    }
+  }
+}

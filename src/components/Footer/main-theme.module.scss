@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.item {
+  border-bottom: 1px solid transparent;
+  transition: border-color $transition-props;
+
+  &:hover {
+    border-color: $main-color-dark;
+  }
+}
