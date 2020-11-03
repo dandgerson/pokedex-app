@@ -1,6 +1,46 @@
-$transition-props: 200ms;
+$transition-props: 200ms linear;
+
+$karla: 'Karla';
+$source-sans-pro: 'Source Sans Pro';
+
+$stile-color: #a1a1a1;
+$grass-color: #70a83b;
+$ice-color: #76aadb;
+$fire-color: #f76545;
+$normal-color: #76aadb;
+$poison-color: #a974bc;
+$ground-color: #9b897b;
+$electric-color: #f7c545;
 
 // [theme-prop-staff[-alfa]]
+$main-color-primary: #f2b807;
+$main-color-second: #f28f16;
+$main-color-third: #f5db13;
+$main-color-dandger: #d93e30;
+$main-color-white: #f2f2f2;
+$main-color-dark: #212121;
 
+$yellow-gradient: linear-gradient(180deg, #{$main-color-third} 0%, #{$main-color-primary} 100%);
 
-:export {}
+// shadows
+$blur24-filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
+$blur20-filter: drop-shadow(4px 4px 20px rgba(1, 28, 64, 0.2));
+$blur16-box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+$blur14-filter: drop-shadow(0px 4px 14px rgba(0, 0, 0, 0.2));
+
+// media
+$desktop-w: 1440px;
+$desktop-h: 1024px;
+
+$tablet-w: 768px;
+$tablet-h: 1024px;
+
+$mobile-w: 375px;
+$mobile-h: 812px;
+
+// exports
+:export {
+  mainColorPrimary: $main-color-primary;
+  mainColorSecond: $main-color-second;
+  mainColorThird: $main-color-third;
+}

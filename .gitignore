@@ -1,4 +1,8 @@
 /node_modules/
 /dist/
+
 package-lock.json
-example.*
+
+example.js
+
+/src/**/*.d.ts
