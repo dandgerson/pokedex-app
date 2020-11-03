@@ -3,10 +3,10 @@ import cl from 'classnames'
 import SVG from 'react-inlinesvg'
 // import PropTypes from 'prop-types'
 
+import logo from 'images/logo.svg'
+
 import s from './Header.module.scss'
 import t from './main-theme.module.scss'
-
-import logo from '../../images/logo.svg'
 
 const Header = () => {
   const [activeRoute, setActiveRoute] = useState('Home')

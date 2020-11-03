@@ -9,6 +9,7 @@ console.log({ NODE_ENV: process.env.NODE_ENV })
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.jsx', '.js', '.json'],
+    modules: [path.resolve('./src'), path.resolve('./node_modules')],
   },
 
   mode: NODE_ENV || 'development',

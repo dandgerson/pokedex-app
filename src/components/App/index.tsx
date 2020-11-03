@@ -1,11 +1,11 @@
 import React from 'react'
 import cl from 'classnames'
 
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+
 import s from './App.module.scss'
 import t from './main-theme.module.scss'
-
-import Header from '../Header'
-import Footer from '../Footer'
 
 const App = () => (
   <div className={cl(s.root, t.root)}>
