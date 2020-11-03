@@ -9,7 +9,7 @@ import t from './main-theme.module.scss'
 import logo from '../../images/logo.svg'
 
 const Header = () => {
-  const [isActive, setIsActive] = useState('home')
+  const [activeRoute, setActiveRoute] = useState('home')
   const routes = ['Home', 'Pokédex', 'Legendaries', 'Documentation']
 
   return (
@@ -19,7 +19,7 @@ const Header = () => {
           s.logo,
           // t.logo,
         )}
-        onClick={() => setIsActive('Home')}>
+        onClick={() => setActiveRoute('Home')}>
         <SVG src={logo} height='64px' width='158px' />
       </div>
 
@@ -32,10 +32,10 @@ const Header = () => {
           <div
             key={route}
             className={cl(s.nav_item, t.nav_item, {
-              [s['nav_item-active']]: route === isActive,
-              [t['nav_item-active']]: route === isActive,
+              [s['nav_item-active']]: route === activeRoute,
+              [t['nav_item-active']]: route === activeRoute,
             })}
-            onClick={() => setIsActive(route)}>
+            onClick={() => setActiveRoute(route)}>
             {route}
           </div>
         ))}

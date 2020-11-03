@@ -9,7 +9,11 @@ const Footer = () => {
   const items = ['Make with ❤️', 'Ours Team']
 
   return (
-    <div className={cl(s.root, t.root)}>
+    <div
+      className={cl(
+        s.root,
+        // t.root,
+      )}>
       {items.map(item => (
         <div key={item} className={cl(s.item, t.item)}>
           {item}
