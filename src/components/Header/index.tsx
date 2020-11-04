@@ -10,7 +10,24 @@ import t from './main-theme.module.scss'
 
 const Header = () => {
   const [activeRoute, setActiveRoute] = useState('Home')
-  const routes = ['Home', 'Pokédex', 'Legendaries', 'Documentation']
+  const routes = [
+    {
+      id: 1,
+      link: 'Home',
+    },
+    {
+      id: 2,
+      link: 'Pokédex',
+    },
+    {
+      id: 3,
+      link: 'Legendaries',
+    },
+    {
+      id: 4,
+      link: 'Documentation',
+    },
+  ]
 
   return (
     <div className={cl(s.root, t.root)}>
@@ -30,13 +47,13 @@ const Header = () => {
         )}>
         {routes.map(route => (
           <div
-            key={route}
+            key={route.id}
             className={cl(s.nav_item, t.nav_item, {
-              [s['nav_item-active']]: route === activeRoute,
-              [t['nav_item-active']]: route === activeRoute,
+              [s['nav_item-active']]: route.link === activeRoute,
+              [t['nav_item-active']]: route.link === activeRoute,
             })}
-            onClick={() => setActiveRoute(route)}>
-            {route}
+            onClick={() => setActiveRoute(route.link)}>
+            {route.link}
           </div>
         ))}
       </div>
