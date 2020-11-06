@@ -6,7 +6,7 @@ import t from './main-theme.module.scss'
 
 const Legendaries = () => {
   return (
-    <div className={cl(s.root, t.root)}>
+    <div className={cl(s.root)}>
       <h1>Legendaries</h1>
     </div>
   )

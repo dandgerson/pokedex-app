@@ -6,7 +6,7 @@ import t from './main-theme.module.scss'
 
 const Pokedex = () => {
   return (
-    <div className={cl(s.root, t.root)}>
+    <div className={cl(s.root)}>
       <h1>pokedex</h1>
     </div>
   )

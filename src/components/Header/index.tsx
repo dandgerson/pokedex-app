@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import cl from 'classnames'
 import SVG from 'react-inlinesvg'
@@ -9,34 +9,31 @@ import s from './Header.module.scss'
 import t from './main-theme.module.scss'
 
 const Header = () => {
-  // const [activeRoute, setActiveRoute] = useState('Home')
   const routesMap = {
     home: {
       id: 1,
-      title: 'Home',
       path: '/',
+      title: 'Home',
     },
     pokedex: {
       id: 2,
-      title: 'Pokédex',
       path: '/pokedex',
+      title: 'Pokédex',
     },
     legendaries: {
       id: 3,
-      title: 'Legendaries',
       path: '/legendaries',
+      title: 'Legendaries',
     },
     documentation: {
       id: 4,
-      title: 'Documentation',
       path: '/documentation',
+      title: 'Documentation',
     },
   }
 
   const history = useHistory()
   const location = useLocation()
-
-  console.log({ location })
 
   return (
     <div className={cl(s.root, t.root)}>

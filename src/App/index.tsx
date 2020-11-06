@@ -18,12 +18,18 @@ const App = () => (
     <div className={cl(s.root, t.root)}>
       <Header />
 
-      <Switch>
-        <Route exact path='/' render={() => <Home />} />
-        <Route path='/legendaries' render={() => <Legendaries />} />
-        <Route path='/pokedex' render={() => <Pokedex />} />
-        <Route path='*' render={() => <Page404 />} />
-      </Switch>
+      <div
+        className={cl(
+          s.layout,
+          // t.layout,
+        )}>
+        <Switch>
+          <Route exact path='/' render={() => <Home />} />
+          <Route path='/legendaries' render={() => <Legendaries />} />
+          <Route path='/pokedex' render={() => <Pokedex />} />
+          <Route path='*' render={() => <Page404 />} />
+        </Switch>
+      </div>
 
       <Footer />
     </div>

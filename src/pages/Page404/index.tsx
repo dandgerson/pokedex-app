@@ -6,7 +6,7 @@ import t from './main-theme.module.scss'
 
 const Page404 = () => {
   return (
-    <div className={cl(s.root, t.root)}>
+    <div className={cl(s.root)}>
       <h1>Page404</h1>
     </div>
   )
