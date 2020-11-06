@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import cl from 'classnames'
 import SVG from 'react-inlinesvg'
-// import PropTypes from 'prop-types'
 
 import logo from 'images/logo.svg'
 
@@ -9,25 +9,34 @@ import s from './Header.module.scss'
 import t from './main-theme.module.scss'
 
 const Header = () => {
-  const [activeRoute, setActiveRoute] = useState('Home')
-  const routes = [
-    {
+  // const [activeRoute, setActiveRoute] = useState('Home')
+  const routesMap = {
+    home: {
       id: 1,
-      link: 'Home',
+      title: 'Home',
+      path: '/',
     },
-    {
+    pokedex: {
       id: 2,
-      link: 'Pokédex',
+      title: 'Pokédex',
+      path: '/pokedex',
     },
-    {
+    legendaries: {
       id: 3,
-      link: 'Legendaries',
+      title: 'Legendaries',
+      path: '/legendaries',
     },
-    {
+    documentation: {
       id: 4,
-      link: 'Documentation',
+      title: 'Documentation',
+      path: '/documentation',
     },
-  ]
+  }
+
+  const history = useHistory()
+  const location = useLocation()
+
+  console.log({ location })
 
   return (
     <div className={cl(s.root, t.root)}>
@@ -36,7 +45,9 @@ const Header = () => {
           s.logo,
           // t.logo,
         )}
-        onClick={() => setActiveRoute('Home')}>
+        onClick={() => {
+          history.push(routesMap.home.path)
+        }}>
         <SVG src={logo} height='64px' width='158px' />
       </div>
 
@@ -45,22 +56,22 @@ const Header = () => {
           s.nav,
           // t.nav,
         )}>
-        {routes.map(route => (
+        {Object.entries(routesMap).map(([, { id, path, title }]) => (
           <div
-            key={route.id}
+            key={id}
             className={cl(s.nav_item, t.nav_item, {
-              [s['nav_item-active']]: route.link === activeRoute,
-              [t['nav_item-active']]: route.link === activeRoute,
+              [s['nav_item-active']]: path === location.pathname,
+              [t['nav_item-active']]: path === location.pathname,
             })}
-            onClick={() => setActiveRoute(route.link)}>
-            {route.link}
+            onClick={() => {
+              history.push(path)
+            }}>
+            {title}
           </div>
         ))}
       </div>
     </div>
   )
 }
-
-Header.propTypes = {}
 
 export default Header
