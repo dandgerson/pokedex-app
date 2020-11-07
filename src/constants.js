@@ -1,5 +1,12 @@
-// eslint-disable-next-line import/prefer-default-export
-export const routesMap = {
+/* eslint-disable import/prefer-default-export */
+interface RoutesMap {
+  home: {};
+  pokedex: {};
+  legendaries: {};
+  documentation: {};
+}
+
+export const routesMap: RoutesMap = {
   home: {
     id: 1,
     path: '/',
