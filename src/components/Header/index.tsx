@@ -5,33 +5,12 @@ import SVG from 'react-inlinesvg'
 
 import logo from 'images/logo.svg'
 
+import * as c from 'constants'
+
 import s from './Header.module.scss'
 import t from './main-theme.module.scss'
 
 const Header = () => {
-  const routesMap = {
-    home: {
-      id: 1,
-      path: '/',
-      title: 'Home',
-    },
-    pokedex: {
-      id: 2,
-      path: '/pokedex',
-      title: 'Pokédex',
-    },
-    legendaries: {
-      id: 3,
-      path: '/legendaries',
-      title: 'Legendaries',
-    },
-    documentation: {
-      id: 4,
-      path: '/documentation',
-      title: 'Documentation',
-    },
-  }
-
   const history = useHistory()
   const location = useLocation()
 
@@ -43,7 +22,7 @@ const Header = () => {
           // t.logo,
         )}
         onClick={() => {
-          history.push(routesMap.home.path)
+          history.push(c.routesMap.home.path)
         }}>
         <SVG src={logo} height='64px' width='158px' />
       </div>
@@ -53,7 +32,7 @@ const Header = () => {
           s.nav,
           // t.nav,
         )}>
-        {Object.entries(routesMap).map(([, { id, path, title }]) => (
+        {Object.entries(c.routesMap).map(([, { id, path, title }]) => (
           <div
             key={id}
             className={cl(s.nav_item, t.nav_item, {

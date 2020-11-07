@@ -53,6 +53,7 @@ module.exports = {
         jsx: 'never',
       },
     ],
+    'react/prop-types': 'off',
   },
   settings: {
     'import/resolver': {

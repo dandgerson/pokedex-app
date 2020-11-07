@@ -74,6 +74,7 @@ module.exports = {
     port: 3000,
     open: false,
     hot: true,
+    historyApiFallback: true,
     // publicPath: path.resolve(__dirname, 'dist'),
   },
 }
