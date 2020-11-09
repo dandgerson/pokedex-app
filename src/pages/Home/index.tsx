@@ -11,8 +11,6 @@ import pokeball2 from 'images/PokeBall2.png'
 
 import Button from 'components/Button'
 
-import routes from 'routes'
-
 import s from './Home.module.scss'
 import t from './main-theme.module.scss'
 
@@ -34,12 +32,8 @@ const Home = () => {
   }, [screenX, screenY])
 
   return (
-    <div
-      className={cl(
-        s.root,
-        // t.root,
-      )}>
-      <div>
+    <div className={cl(s.root, t.root)}>
+      <div className={cl(s.cover)}>
         <h1
           className={cl(
             s.title,
@@ -56,46 +50,44 @@ const Home = () => {
         <Button onClick={() => history.push('/pokedex')}>See pokemons</Button>
       </div>
 
-      <div>
-        <div
-          className={cl(s.cloudBig)}
-          style={{
-            transform: `translate(${screenX * 0.003}%, ${screenY * 0.003}%)`,
-          }}>
-          <img src={cloudBig} alt='' />
-        </div>
+      <div
+        className={cl(s.cloudBig)}
+        style={{
+          transform: `translate(${screenX * 0.003}%, ${screenY * 0.003}%)`,
+        }}>
+        <img src={cloudBig} alt='' />
+      </div>
 
-        <div
-          className={cl(s.cloudSmall)}
-          style={{
-            transform: `translate(${screenX * 0.003}%, ${screenY * 0.003}%)`,
-          }}>
-          <img src={cloudSmall} alt='' />
-        </div>
+      <div
+        className={cl(s.cloudSmall)}
+        style={{
+          transform: `translate(${screenX * 0.003}%, ${screenY * 0.003}%)`,
+        }}>
+        <img src={cloudSmall} alt='' />
+      </div>
 
-        <div
-          className={cl(s.pikachu)}
-          style={{
-            transform: `translate(${screenX * -0.009}%, ${screenY * -0.01}%)`,
-          }}>
-          <img src={pikachu} alt='' />
-        </div>
+      <div
+        className={cl(s.pikachu)}
+        style={{
+          transform: `translate(${screenX * -0.009}%, ${screenY * -0.01}%)`,
+        }}>
+        <img src={pikachu} alt='' />
+      </div>
 
-        <div
-          className={cl(s.pokeball1)}
-          style={{
-            transform: `translate(${screenX * 0.003}%, ${screenY * 0.003}%)`,
-          }}>
-          <img src={pokeball1} alt='' />
-        </div>
+      <div
+        className={cl(s.pokeball1)}
+        style={{
+          transform: `translate(${screenX * 0.003}%, ${screenY * 0.003}%)`,
+        }}>
+        <img src={pokeball1} alt='' />
+      </div>
 
-        <div
-          className={cl(s.pokeball2)}
-          style={{
-            transform: `translateY(${screenY * -0.005}%)`,
-          }}>
-          <img src={pokeball2} alt='' />
-        </div>
+      <div
+        className={cl(s.pokeball2)}
+        style={{
+          transform: `translateY(${screenY * -0.005}%)`,
+        }}>
+        <img src={pokeball2} alt='' />
       </div>
     </div>
   )
