@@ -34,18 +34,19 @@ const Home = () => {
   return (
     <div className={cl(s.root, t.root)}>
       <div className={cl(s.cover)}>
-        <h1
+        <div
           className={cl(
+            'h1',
             s.title,
             // t.title,
           )}>
-          <span className={cl(s.bold)}>Find</span> all your favorite{' '}
-          <span className={cl(s.bold)}>Pokemon</span>
-        </h1>
+          <span className={cl('bold')}>Find</span> all your favorite{' '}
+          <span className={cl('bold')}>Pokemon</span>
+        </div>
 
-        <h2 className={cl(s.title)}>
+        <div className={cl('h2', s.title)}>
           You can know the type of Pokemon, its strengths, disadvantages and abilities
-        </h2>
+        </div>
 
         <Button onClick={() => history.push('/pokedex')}>See pokemons</Button>
       </div>

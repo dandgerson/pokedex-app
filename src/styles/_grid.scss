@@ -1,0 +1,46 @@
+$step: 8.3333;
+
+.row {
+  width: 100%;
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+.col-1 {
+  flex: 0 0 calc(1% * #{$step});
+}
+.col-2 {
+  flex: 0 0 calc(2% * #{$step});
+}
+.col-3 {
+  flex: 0 0 calc(3% * #{$step});
+}
+.col-4 {
+  flex: 0 0 calc(4% * #{$step});
+}
+.col-5 {
+  flex: 0 0 calc(5% * #{$step});
+}
+.col-6 {
+  flex: 0 0 calc(6% * #{$step});
+}
+.col-7 {
+  flex: 0 0 calc(7% * #{$step});
+}
+.col-8 {
+  flex: 0 0 calc(8% * #{$step});
+}
+.col-9 {
+  flex: 0 0 calc(9% * #{$step});
+}
+.col-10 {
+  flex: 0 0 calc(10% * #{$step});
+}
+.col-11 {
+  flex: 0 0 calc(11% * #{$step});
+}
+.col-12 {
+  flex: 0 0 calc(12% * #{$step});
+}

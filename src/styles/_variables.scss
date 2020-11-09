@@ -22,7 +22,7 @@ $main-color-dark: #212121;
 $main-color-accent: #73d677;
 
 $yellow-gradient: linear-gradient(180deg, #{$main-color-third} 0%, #{$main-color-primary} 100%);
-
+$grey-gradient: linear-gradient(180deg, #ffffff 30.32%, #f5f5f5 100%);
 // shadows
 $blur24-filter: drop-shadow(4px 4px 24px rgba(1, 17, 38, 0.2));
 $blur20-filter: drop-shadow(4px 4px 20px rgba(1, 28, 64, 0.2));

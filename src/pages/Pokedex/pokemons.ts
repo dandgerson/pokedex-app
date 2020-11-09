@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-export const pokemons: Array<{}> = [
+const pokemons: Array<{}> = [
   {
     name_clean: 'bulbasaur',
     abilities: ['overgrow', 'chlorophyll'],
@@ -221,3 +220,5 @@ export const pokemons: Array<{}> = [
     weight: 29,
   },
 ]
+
+export default pokemons

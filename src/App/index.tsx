@@ -8,20 +8,14 @@ import Footer from 'components/Footer'
 import routes from 'routes'
 
 import s from './App.module.scss'
-import t from './main-theme.module.scss'
-
-console.log({ routes })
+// import t from './main-theme.module.scss'
 
 const App = () => (
   <BrowserRouter>
-    <div className={cl(s.root, t.root)}>
+    <div className={cl(s.root)}>
       <Header />
 
-      <div
-        className={cl(
-          s.layout,
-          // t.layout,
-        )}>
+      <div className={cl(s.layout)}>
         <Switch>
           {routes.map(route => (
             <Route
@@ -31,11 +25,12 @@ const App = () => (
               render={() => route.render()}
             />
           ))}
-          {/* <Route path='*' render={() => routes.page404.render()} /> */}
         </Switch>
       </div>
 
-      <Footer />
+      <div className={cl(s.footer)}>
+        <Footer />
+      </div>
     </div>
   </BrowserRouter>
 )

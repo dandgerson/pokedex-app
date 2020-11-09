@@ -1,12 +1,13 @@
 @import 'styles/variables';
 
 .root {
-  height: 93px;
   display: flex;
   align-items: center;
-  padding: 0 144px;
-
   justify-content: space-between;
+
+  height: 93px;
+  padding: 0 144px;
+  z-index: 100;
 }
 
 .logo {
