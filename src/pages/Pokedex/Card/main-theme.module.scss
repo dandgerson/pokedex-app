@@ -1,0 +1,49 @@
+@import 'styles/variables';
+
+.label {
+  &-fire,
+  &-fighting,
+  &-dragon {
+    background: $fire-color;
+  }
+
+  &-stile,
+  &-dark,
+  &-rock {
+    background: $stile-color;
+  }
+
+  &-flying {
+    background: $flying-color;
+  }
+
+  &-grass,
+  &-bug {
+    background: $grass-color;
+  }
+
+  &-ice,
+  &-water {
+    background: $ice-color;
+  }
+
+  &-normal,
+  &-gosth {
+    background: $normal-color;
+  }
+
+  &-poison,
+  &-psichic,
+  &-fairy,
+  &-ghost {
+    background: $poison-color;
+  }
+
+  &-ground {
+    background: $ground-color;
+  }
+
+  &-electric {
+    background: $ground-color;
+  }
+}

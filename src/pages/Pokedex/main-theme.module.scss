@@ -11,3 +11,9 @@
     box-shadow: $blur16-box-shadow;
   }
 }
+
+.loader {
+  svg circle {
+    fill: rgba($main-color-dark, 0.5);
+  }
+}
