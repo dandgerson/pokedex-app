@@ -1,0 +1,84 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
+  & > div {
+    &:nth-of-type(1) {
+      flex: 0.4;
+      display: flex;
+      flex-flow: column nowrap;
+      // justify-content: center;
+      max-width: 520px;
+    }
+    &:nth-of-type(2) {
+      flex: 0.6;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.title {
+  margin-bottom: 64px;
+
+  &:first-child {
+    margin-top: 128px;
+  }
+}
+
+.banner {
+  margin-top: 108px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.cloudBig {
+  position: absolute;
+  height: 164px;
+  width: 343px;
+
+  top: 11%;
+  left: 47%;
+}
+.cloudSmall {
+  position: absolute;
+  height: 107px;
+  width: 223px;
+
+  top: 40%;
+  left: 3%;
+}
+.pikachu {
+  position: absolute;
+  height: 647px;
+  width: 647px;
+  z-index: 100;
+
+  top: 11%;
+  left: 11%;
+}
+.pokeball1 {
+  position: absolute;
+  height: 167px;
+  width: 166px;
+
+  top: 15%;
+  left: 10%;
+}
+.pokeball2 {
+  position: absolute;
+  z-index: 100;
+  height: 316px;
+  width: 210px;
+
+  top: 16%;
+  right: 0;
+}
