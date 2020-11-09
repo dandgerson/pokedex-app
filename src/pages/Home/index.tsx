@@ -11,7 +11,7 @@ import pokeball2 from 'images/PokeBall2.png'
 
 import Button from 'components/Button'
 
-import * as c from 'constants'
+import routes from 'routes'
 
 import s from './Home.module.scss'
 import t from './main-theme.module.scss'
@@ -53,7 +53,7 @@ const Home = () => {
           You can know the type of Pokemon, its strengths, disadvantages and abilities
         </h2>
 
-        <Button onClick={() => history.push(c.routesMap.pokedex.path)}>See pokemons</Button>
+        <Button onClick={() => history.push('/pokedex')}>See pokemons</Button>
       </div>
 
       <div>
