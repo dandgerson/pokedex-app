@@ -1,1 +1,19 @@
 @import 'styles/variables';
+
+.root {
+  background: $grey-gradient;
+}
+
+.search {
+  input {
+    color: rgba($main-color-dark, 0.8);
+    background-color: $main-color-white;
+    box-shadow: $blur16-box-shadow;
+  }
+}
+
+.loader {
+  svg circle {
+    fill: rgba($main-color-dark, 0.5);
+  }
+}

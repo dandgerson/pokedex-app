@@ -5,8 +5,8 @@ import s from './Button.module.scss'
 import t from './main-theme.module.scss'
 
 interface ButtonProps {
-  styles: {}
-  classes: string[]
+  styles?: {}
+  classes?: string[]
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 

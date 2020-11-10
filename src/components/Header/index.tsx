@@ -5,7 +5,7 @@ import SVG from 'react-inlinesvg'
 
 import logo from 'images/logo.svg'
 
-import * as c from 'constants'
+import routes from 'routes'
 
 import s from './Header.module.scss'
 import t from './main-theme.module.scss'
@@ -22,7 +22,7 @@ const Header = () => {
           // t.logo,
         )}
         onClick={() => {
-          history.push(c.routesMap.home.path)
+          history.push('/')
         }}>
         <SVG src={logo} height='64px' width='158px' />
       </div>
@@ -32,19 +32,22 @@ const Header = () => {
           s.nav,
           // t.nav,
         )}>
-        {Object.entries(c.routesMap).map(([, { id, path, title }]) => (
-          <div
-            key={id}
-            className={cl(s.nav_item, t.nav_item, {
-              [s['nav_item-active']]: path === location.pathname,
-              [t['nav_item-active']]: path === location.pathname,
-            })}
-            onClick={() => {
-              history.push(path)
-            }}>
-            {title}
-          </div>
-        ))}
+        {routes.map(
+          route =>
+            !['Page404'].includes(route.title) && (
+              <div
+                key={route.id}
+                className={cl(s.nav_item, t.nav_item, {
+                  [s['nav_item-active']]: route.path === location.pathname,
+                  [t['nav_item-active']]: route.path === location.pathname,
+                })}
+                onClick={() => {
+                  history.push(route.path)
+                }}>
+                {route.title}
+              </div>
+            ),
+        )}
       </div>
     </div>
   )

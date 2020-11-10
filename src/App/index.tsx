@@ -5,33 +5,32 @@ import cl from 'classnames'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
-import Home from 'pages/Home'
-import Pokedex from 'pages/Pokedex'
-import Legendaries from 'pages/Legendaries'
-import Page404 from 'pages/Page404'
+import routes from 'routes'
 
 import s from './App.module.scss'
-import t from './main-theme.module.scss'
+// import t from './main-theme.module.scss'
 
 const App = () => (
   <BrowserRouter>
-    <div className={cl(s.root, t.root)}>
+    <div className={cl(s.root)}>
       <Header />
 
-      <div
-        className={cl(
-          s.layout,
-          // t.layout,
-        )}>
+      <div className={cl(s.layout)}>
         <Switch>
-          <Route exact path='/' render={() => <Home />} />
-          <Route path='/legendaries' render={() => <Legendaries />} />
-          <Route path='/pokedex' render={() => <Pokedex />} />
-          <Route path='*' render={() => <Page404 />} />
+          {routes.map(route => (
+            <Route
+              key={route.id}
+              exact={route.path === '/'}
+              path={route.path}
+              render={() => route.render()}
+            />
+          ))}
         </Switch>
       </div>
 
-      <Footer />
+      <div className={cl(s.footer)}>
+        <Footer />
+      </div>
     </div>
   </BrowserRouter>
 )

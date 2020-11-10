@@ -1,15 +1,15 @@
 import React from 'react'
 import cl from 'classnames'
 
-import s from './Page404.module.scss'
+import s from './Documentation.module.scss'
 // import t from './main-theme.module.scss'
 
-const Page404 = () => {
+const Documentation = () => {
   return (
     <div className={cl(s.root)}>
-      <h1>Page404</h1>
+      <h1>Documentation</h1>
     </div>
   )
 }
 
-export default Page404
+export default Documentation
