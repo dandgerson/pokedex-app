@@ -15,7 +15,7 @@ import t from './main-theme.module.scss'
 
 const Pokedex = () => {
   const [pokemonData, isLoading, error] = usePokeApi({
-    request: 'pokemon?limit=20',
+    params: 'pokemon?limit=20',
   })
 
   // console.log({ pokemonData })

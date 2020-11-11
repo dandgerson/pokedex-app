@@ -9,7 +9,7 @@ export interface IError {
   message: string
 }
 
-const usePokeApi = ({ request = '' } = {}) => {
+const usePokeApi = ({ params = '' } = {}) => {
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<IError | null>(null)
@@ -17,7 +17,7 @@ const usePokeApi = ({ request = '' } = {}) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios(`${baseUrl}${request}`)
+        const response = await axios(`${baseUrl}${params}`)
         Promise.all(
           response.data.results.map(async (pokemon: { url: string }) => ({
             ...pokemon,
@@ -39,7 +39,7 @@ const usePokeApi = ({ request = '' } = {}) => {
     }
 
     getData()
-  }, [request])
+  }, [params])
 
   return [data, isLoading, error]
 }
