@@ -1,6 +1,4 @@
-const pokemons: Array<{
-  id: number
-}> = [
+const pokemons: { [key: string]: any }[] = [
   {
     name_clean: 'bulbasaur',
     abilities: ['overgrow', 'chlorophyll'],
