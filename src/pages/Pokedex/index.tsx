@@ -7,7 +7,6 @@ import ellipse from 'images/ellipse.svg'
 import usePokeApi from 'hooks/usePokeApi'
 
 import Dropdown from 'components/Dropdown'
-import { divide } from 'lodash'
 import Card from './Card'
 
 import s from './Pokedex.module.scss'
