@@ -7,6 +7,7 @@ import ellipse from 'images/ellipse.svg'
 import usePokeApi from 'hooks/usePokeApi'
 
 import Dropdown from 'components/Dropdown'
+import { divide } from 'lodash'
 import Card from './Card'
 
 import s from './Pokedex.module.scss'
@@ -18,22 +19,12 @@ const Pokedex = () => {
   })
 
   // console.log({ pokemonData })
-  const renderCards = () => {
-    const resolvedContent = error ? (
-      <div>{error.message}</div>
-    ) : (
-      pokemonData.pokemons &&
-      pokemonData.pokemons.map(pokemon => <Card key={pokemon.name} data={pokemon} />)
-    )
-
-    return isLoading ? <div>Loading...</div> : resolvedContent
-  }
 
   return (
     <div className={cl(s.root, t.root)}>
       <div className={cl(s.layout)}>
         <div className={cl(s.header)}>
-          {pokemonData.total} <span className={cl('bold')}>Pokemons</span> for you to choose your
+          {pokemonData?.total} <span className={cl('bold')}>Pokemons</span> for you to choose your
           favorite
         </div>
 
@@ -47,7 +38,14 @@ const Pokedex = () => {
           <Dropdown />
         </div>
 
-        <div className={cl(s.cards)}>{renderCards()}</div>
+        {isLoading && <div>Loading...</div>}
+        {error.message && <div>error.message</div>}
+
+        <div className={cl(s.cards)}>
+          {pokemonData?.pokemons?.map(pokemon => (
+            <Card key={pokemon.name} data={pokemon} />
+          ))}
+        </div>
 
         <div className={cl(s.loader, t.loader)}>
           {Array.from({ length: 3 }, (_, i) => i).map(v => (
