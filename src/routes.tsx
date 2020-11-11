@@ -6,6 +6,13 @@ import Legendaries from 'pages/Legendaries'
 import Documentation from 'pages/Documentation'
 import Page404 from 'pages/Page404'
 
+export enum PathEnum {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  LEGENDARIES = '/legendaries',
+  DOCUMENTATION = '/documentation',
+}
+
 const routes: Array<{
   id: string
   path: string
@@ -14,25 +21,25 @@ const routes: Array<{
 }> = [
   {
     id: '1',
-    path: '/',
+    path: PathEnum.HOME,
     title: 'Home',
     render: () => <Home />,
   },
   {
     id: '2',
-    path: '/pokedex',
+    path: PathEnum.POKEDEX,
     title: 'Pokédex',
     render: () => <Pokedex />,
   },
   {
     id: '3',
-    path: '/legendaries',
+    path: PathEnum.LEGENDARIES,
     title: 'Legendaries',
     render: () => <Legendaries />,
   },
   {
     id: '4',
-    path: '/documentation',
+    path: PathEnum.DOCUMENTATION,
     title: 'Documentation',
     render: () => <Documentation />,
   },

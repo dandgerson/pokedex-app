@@ -1,4 +1,10 @@
-const pokemons: { [key: string]: any }[] = [
+const pokemons: {
+  [key: string]: any
+  stats: any
+  types: any
+  img: any
+  name: any
+}[] = [
   {
     name_clean: 'bulbasaur',
     abilities: ['overgrow', 'chlorophyll'],
