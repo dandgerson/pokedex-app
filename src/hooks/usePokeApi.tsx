@@ -5,17 +5,21 @@ const baseUrl = 'https://pokeapi.co/api/v2/'
 // const baseUrlV1 = 'https://pokeapi.co/api/v1/'
 // const zarUrl = 'http://zar.hosthot.ru/api/v1/'
 
+export interface IError {
+  message: string
+}
+
 const usePokeApi = ({ request = '' } = {}) => {
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<IError | null>(null)
 
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios(`${baseUrl}${request}`)
         Promise.all(
-          response.data.results.map(async pokemon => ({
+          response.data.results.map(async (pokemon: { url: string }) => ({
             ...pokemon,
             details: await axios(pokemon.url),
           })),
