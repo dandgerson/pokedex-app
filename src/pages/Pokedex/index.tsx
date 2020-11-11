@@ -4,6 +4,8 @@ import SVG from 'react-inlinesvg'
 
 import ellipse from 'images/ellipse.svg'
 
+import usePokeApi from 'hooks/usePokeApi'
+
 import Dropdown from 'components/Dropdown'
 import Card from './Card'
 
@@ -13,11 +15,18 @@ import t from './main-theme.module.scss'
 import pokemons from './pokemons'
 
 const Pokedex = () => {
+  const [pokemonData, isLoading, error] = usePokeApi({
+    request: 'pokemon?limit=20',
+  })
+
+  console.log({ pokemonData, error })
+
   return (
     <div className={cl(s.root, t.root)}>
       <div className={cl(s.layout)}>
         <div className={cl(s.header)}>
-          800 <span className={cl('bold')}>Pokemons</span> for you to choose your favorite
+          {pokemonData.total} <span className={cl('bold')}>Pokemons</span> for you to choose your
+          favorite
         </div>
 
         <form className={cl(s.search, t.search)}>
@@ -31,9 +40,11 @@ const Pokedex = () => {
         </div>
 
         <div className={cl(s.cards)}>
-          {pokemons.map(pokemon => (
-            <Card key={pokemon.id} data={pokemon} />
-          ))}
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            pokemonData.pokemons.map(pokemon => <Card key={pokemon.id} data={pokemon} />)
+          )}
         </div>
 
         <div className={cl(s.loader, t.loader)}>
