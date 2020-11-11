@@ -12,14 +12,22 @@ import Card from './Card'
 import s from './Pokedex.module.scss'
 import t from './main-theme.module.scss'
 
-import pokemons from './pokemons'
-
 const Pokedex = () => {
   const [pokemonData, isLoading, error] = usePokeApi({
     request: 'pokemon?limit=20',
   })
 
-  console.log({ pokemonData, error })
+  // console.log({ pokemonData })
+  const renderCards = () => {
+    const resolvedContent = error ? (
+      <div>{error.message}</div>
+    ) : (
+      pokemonData.pokemons &&
+      pokemonData.pokemons.map(pokemon => <Card key={pokemon.name} data={pokemon} />)
+    )
+
+    return isLoading ? <div>Loading...</div> : resolvedContent
+  }
 
   return (
     <div className={cl(s.root, t.root)}>
@@ -39,13 +47,7 @@ const Pokedex = () => {
           <Dropdown />
         </div>
 
-        <div className={cl(s.cards)}>
-          {isLoading ? (
-            <div>Loading...</div>
-          ) : (
-            pokemonData.pokemons.map(pokemon => <Card key={pokemon.id} data={pokemon} />)
-          )}
-        </div>
+        <div className={cl(s.cards)}>{renderCards()}</div>
 
         <div className={cl(s.loader, t.loader)}>
           {Array.from({ length: 3 }, (_, i) => i).map(v => (
