@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import cl from 'classnames'
 import SVG from 'react-inlinesvg'
 
@@ -7,18 +7,20 @@ import ellipse from 'images/ellipse.svg'
 import usePokeApi from 'hooks/usePokeApi'
 
 import Dropdown from 'components/Dropdown'
-import { divide } from 'lodash'
 import Card from './Card'
 
 import s from './Pokedex.module.scss'
 import t from './main-theme.module.scss'
 
 const Pokedex = () => {
-  const [pokemonData, isLoading, error] = usePokeApi({
+  const [{ data: pokemonData, isLoading, error }, doFetch] = usePokeApi({
     request: 'pokemon?limit=20',
   })
 
   // console.log({ pokemonData })
+  useEffect(() => {
+    doFetch()
+  }, [])
 
   return (
     <div className={cl(s.root, t.root)}>
@@ -39,7 +41,7 @@ const Pokedex = () => {
         </div>
 
         {isLoading && <div>Loading...</div>}
-        {error.message && <div>error.message</div>}
+        {error?.message && <div>error.message</div>}
 
         <div className={cl(s.cards)}>
           {pokemonData?.pokemons?.map(pokemon => (

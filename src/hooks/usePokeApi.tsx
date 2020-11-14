@@ -9,10 +9,22 @@ export interface IError {
   message: string
 }
 
-const usePokeApi = ({ request = '' } = {}) => {
+const usePokeApi = ({ request = '' } = {}): [
+  {
+    data: object | []
+    isLoading: boolean
+    error: IError | null
+  },
+  () => void,
+] => {
   const [data, setData] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<IError | null>(null)
+
+  const doFetch = () => {
+    console.log('doFetch')
+    setIsLoading(true)
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -38,10 +50,12 @@ const usePokeApi = ({ request = '' } = {}) => {
       }
     }
 
-    getData()
-  }, [request])
+    if (isLoading) {
+      getData()
+    }
+  }, [request, isLoading])
 
-  return [data, isLoading, error]
+  return [{ data, isLoading, error }, doFetch]
 }
 
 export default usePokeApi
