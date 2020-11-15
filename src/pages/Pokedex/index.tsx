@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import cl from 'classnames'
 import SVG from 'react-inlinesvg'
 
 import ellipse from 'images/ellipse.svg'
+
+import usePokeApi from 'hooks/usePokeApi'
 
 import Dropdown from 'components/Dropdown'
 import Card from './Card'
@@ -10,14 +12,22 @@ import Card from './Card'
 import s from './Pokedex.module.scss'
 import t from './main-theme.module.scss'
 
-import pokemons from './pokemons'
-
 const Pokedex = () => {
+  const [{ data: pokemonData, isLoading, error }, doFetch] = usePokeApi({
+    params: 'pokemon?limit=20',
+  })
+
+  console.log({ pokemonData })
+  useEffect(() => {
+    doFetch()
+  }, [])
+
   return (
     <div className={cl(s.root, t.root)}>
       <div className={cl(s.layout)}>
         <div className={cl(s.header)}>
-          800 <span className={cl('bold')}>Pokemons</span> for you to choose your favorite
+          {pokemonData?.total} <span className={cl('bold')}>Pokemons</span> for you to choose your
+          favorite
         </div>
 
         <form className={cl(s.search, t.search)}>
@@ -30,9 +40,12 @@ const Pokedex = () => {
           <Dropdown />
         </div>
 
+        {isLoading && <div>Loading...</div>}
+        {error?.message && <div>error.message</div>}
+
         <div className={cl(s.cards)}>
-          {pokemons.map(pokemon => (
-            <Card key={pokemon.id} data={pokemon} />
+          {pokemonData?.pokemons?.map(pokemon => (
+            <Card key={pokemon.name} data={pokemon} />
           ))}
         </div>
 
