@@ -9,7 +9,7 @@ export interface IError {
   message: string
 }
 
-const usePokeApi = ({ request = '' } = {}): [
+const usePokeApi = ({ params = '' } = {}): [
   {
     data: object | []
     isLoading: boolean
@@ -29,15 +29,21 @@ const usePokeApi = ({ request = '' } = {}): [
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios(`${baseUrl}${request}`)
+        const pokemonsRes = await axios(`${baseUrl}${params}`)
+
         Promise.all(
-          response.data.results.map(async (pokemon: { url: string }) => ({
-            ...pokemon,
-            details: await axios(pokemon.url),
-          })),
+          pokemonsRes.data.results.map(async ({ url }) => {
+            const detailsRes = await axios(url)
+            const speciesRes = await axios(detailsRes.data.species.url)
+
+            return {
+              ...detailsRes.data,
+              color: speciesRes.data.color.name,
+            }
+          }),
         ).then(result =>
           setData({
-            total: response.data.count,
+            total: pokemonsRes.data.count,
             pokemons: result,
           }),
         )
@@ -53,7 +59,7 @@ const usePokeApi = ({ request = '' } = {}): [
     if (isLoading) {
       getData()
     }
-  }, [request, isLoading])
+  }, [params, isLoading])
 
   return [{ data, isLoading, error }, doFetch]
 }
