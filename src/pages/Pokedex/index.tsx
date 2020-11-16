@@ -13,9 +13,7 @@ import s from './Pokedex.module.scss'
 import t from './main-theme.module.scss'
 
 const Pokedex = () => {
-  const [{ data: pokemonData, isLoading, error }, doFetch] = usePokeApi({
-    params: 'pokemon?limit=20',
-  })
+  const [{ data: pokemonData, isLoading, error }, doFetch] = usePokeApi()
 
   console.log({ pokemonData })
   useEffect(() => {
@@ -41,7 +39,7 @@ const Pokedex = () => {
         </div>
 
         {isLoading && <div>Loading...</div>}
-        {error?.message && <div>error.message</div>}
+        {error?.message && <div>{error.message}</div>}
 
         <div className={cl(s.cards)}>
           {pokemonData?.pokemons?.map(pokemon => (

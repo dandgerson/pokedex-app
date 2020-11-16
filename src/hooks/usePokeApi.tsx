@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const baseUrl = 'https://pokeapi.co/api/v2/'
+import config from 'config'
+
+// const baseUrl = 'https://pokeapi.co/api/v2/'
 // const baseUrlV1 = 'https://pokeapi.co/api/v1/'
 // const zarUrl = 'http://zar.hosthot.ru/api/v1/'
 
@@ -27,13 +29,16 @@ const usePokeApi = ({ params = '' } = {}): [
   }
 
   useEffect(() => {
+    const url = `${config.client.server.protocol}://${config.client.server.host}${config.client.endpoint.getPokemons.uri.pathname}`
+    console.log({ url })
+
     const getData = async () => {
       try {
-        const pokemonsRes = await axios(`${baseUrl}${params}`)
+        const pokemonsRes = await axios(url)
 
         Promise.all(
-          pokemonsRes.data.results.map(async ({ url }) => {
-            const detailsRes = await axios(url)
+          pokemonsRes.data.results.map(async ({ url: pokemonUrl }) => {
+            const detailsRes = await axios(pokemonUrl)
             const speciesRes = await axios(detailsRes.data.species.url)
 
             return {
