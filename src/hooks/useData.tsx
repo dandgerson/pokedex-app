@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-
-import config from 'config'
-
-// const baseUrl = 'https://pokeapi.co/api/v2/'
-// const baseUrlV1 = 'https://pokeapi.co/api/v1/'
-// const zarUrl = 'http://zar.hosthot.ru/api/v1/'
+import request from 'utils/request'
 
 export interface IError {
   message: string
 }
 
-const usePokeApi = ({ params = '' } = {}): [
+const useData = ({ endpoint = '' } = {}): [
   {
     data: object | []
     isLoading: boolean
@@ -19,26 +14,22 @@ const usePokeApi = ({ params = '' } = {}): [
   },
   () => void,
 ] => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<IError | null>(null)
 
   const doFetch = () => {
-    console.log('doFetch')
     setIsLoading(true)
   }
 
   useEffect(() => {
-    const url = `${config.client.server.protocol}://${config.client.server.host}${config.client.endpoint.getPokemons.uri.pathname}`
-    console.log({ url })
-
     const getData = async () => {
       try {
-        const pokemonsRes = await axios(url)
+        const response = await request(endpoint)
 
         Promise.all(
-          pokemonsRes.data.results.map(async ({ url: pokemonUrl }) => {
-            const detailsRes = await axios(pokemonUrl)
+          response.data.results.map(async ({ url }) => {
+            const detailsRes = await axios(url)
             const speciesRes = await axios(detailsRes.data.species.url)
 
             return {
@@ -48,7 +39,7 @@ const usePokeApi = ({ params = '' } = {}): [
           }),
         ).then(result =>
           setData({
-            total: pokemonsRes.data.count,
+            total: response.data.count,
             pokemons: result,
           }),
         )
@@ -64,9 +55,9 @@ const usePokeApi = ({ params = '' } = {}): [
     if (isLoading) {
       getData()
     }
-  }, [params, isLoading])
+  }, [endpoint, isLoading])
 
   return [{ data, isLoading, error }, doFetch]
 }
 
-export default usePokeApi
+export default useData
