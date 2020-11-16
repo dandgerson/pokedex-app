@@ -1,9 +1,11 @@
 import config from 'config'
 
-const getUrlWithParamsConfig = (endpointConfig: string) => {
+const getUrlWithParamsConfig = ({ endpoint, query, pathname }) => {
   return {
     ...config.client.server,
-    ...config.client.endpoint[endpointConfig].uri,
+    ...config.client.endpoint[endpoint].uri,
+    query,
+    pathname,
   }
 }
 

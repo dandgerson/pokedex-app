@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import cl from 'classnames'
 import SVG from 'react-inlinesvg'
 
@@ -13,12 +13,16 @@ import s from './Pokedex.module.scss'
 import t from './main-theme.module.scss'
 
 const Pokedex = () => {
-  const [{ data, isLoading, error }, doFetch] = useData({ endpoint: 'getPokemons' })
+  const [searchValue, setSearchValue] = useState('')
+  const [{ data, isLoading, error }, doFetch] = useData({
+    endpoint: 'getPokemons',
+    pathname: searchValue,
+  })
 
   console.log({ data })
   useEffect(() => {
     doFetch()
-  }, [])
+  }, [searchValue])
 
   return (
     <div className={cl(s.root, t.root)}>
@@ -28,7 +32,14 @@ const Pokedex = () => {
         </div>
 
         <form className={cl(s.search, t.search)}>
-          <input type='text' placeholder='Encuentra tu pokémon...' />
+          <input
+            type='text'
+            placeholder='Encuentra tu pokémon...'
+            value={searchValue}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setSearchValue(e.target.value)
+            }}
+          />
         </form>
 
         <div className={cl(s.filters)}>

@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import request from 'utils/request'
 
+import PokeApiHandler from 'api/pokeApiHandler'
+
 export interface IError {
   message: string
 }
 
-const useData = ({ endpoint = '' } = {}): [
+const pokeApiHandler = new PokeApiHandler()
+
+const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
   {
     data: object | []
     isLoading: boolean
@@ -25,24 +29,8 @@ const useData = ({ endpoint = '' } = {}): [
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await request(endpoint)
-
-        Promise.all(
-          response.data.results.map(async ({ url }) => {
-            const detailsRes = await axios(url)
-            const speciesRes = await axios(detailsRes.data.species.url)
-
-            return {
-              ...detailsRes.data,
-              color: speciesRes.data.color.name,
-            }
-          }),
-        ).then(result =>
-          setData({
-            total: response.data.count,
-            pokemons: result,
-          }),
-        )
+        const response = await request({ endpoint })
+        pokeApiHandler[endpoint]({ setData, response })
       } catch (e) {
         setError({
           message: e.message,
