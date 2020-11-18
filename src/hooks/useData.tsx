@@ -27,6 +27,8 @@ const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
   }
 
   // sad;lfasdf;lkjsdfaa
+  // sad;lfasdf;lkjsdfaa
+  // sad;lfasdf;lkjsdfaa
 
   useEffect(() => {
     const getData = async () => {
