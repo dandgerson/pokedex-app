@@ -11,6 +11,7 @@ const request = async ({ endpoint = '', query = {}, uriSuffix = '' }) => {
           pathname: `${config.client.endpoint[endpoint].uri.pathname}${uriSuffix}`,
         }
       : {}),
+    ...query,
   })
 
   return axios({
