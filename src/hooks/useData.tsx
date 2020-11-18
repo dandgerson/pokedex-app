@@ -30,6 +30,8 @@ const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
   // sad;lfasdf;lkjsdfaa
   // sad;lfasdf;lkjsdfaa
 
+  console.log('tratarratar')
+
   useEffect(() => {
     const getData = async () => {
       try {
