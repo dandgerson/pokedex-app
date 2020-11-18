@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import request from 'utils/request'
 
 import PokeApiHandler from 'api/pokeApiHandler'
 
@@ -10,7 +8,7 @@ export interface IError {
 
 const pokeApiHandler = new PokeApiHandler()
 
-const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
+const useData = (): [
   {
     data: object | []
     isLoading: boolean
@@ -19,24 +17,31 @@ const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
   () => void,
 ] => {
   const [data, setData] = useState(null)
+  const [endpoint, setEndpoint] = useState('')
+  const [query, setQuery] = useState(null)
+  const [uriSuffix, setUriSuffix] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<IError | null>(null)
 
-  const doFetch = () => {
+  const doFetch = ({
+    endpoint: currentEndpoint = '',
+    query: currentQuery = null,
+    uriSuffix: currentUriSuffix = '',
+  } = {}): void => {
+    currentEndpoint && setEndpoint(currentEndpoint)
+    currentQuery && setQuery(currentQuery)
+    currentUriSuffix && setUriSuffix(currentUriSuffix)
     setIsLoading(true)
   }
 
-  // sad;lfasdf;lkjsdfaa
-  // sad;lfasdf;lkjsdfaa
-  // sad;lfasdf;lkjsdfaa
-
-  console.log('tratarratar')
-
   useEffect(() => {
-    const getData = async () => {
+    const getData = () => {
       try {
-        const response = await request({ endpoint })
-        pokeApiHandler[endpoint]({ setData, response })
+        pokeApiHandler[endpoint]({
+          setData,
+          query,
+          uriSuffix,
+        })
       } catch (e) {
         setError({
           message: e.message,
@@ -49,7 +54,7 @@ const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
     if (isLoading) {
       getData()
     }
-  }, [endpoint, isLoading])
+  }, [endpoint, isLoading, query, uriSuffix])
 
   return [{ data, isLoading, error }, doFetch]
 }

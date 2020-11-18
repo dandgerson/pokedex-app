@@ -14,21 +14,26 @@ import t from './main-theme.module.scss'
 
 const Pokedex = () => {
   const [searchValue, setSearchValue] = useState('')
-  const [{ data, isLoading, error }, doFetch] = useData({
-    endpoint: 'getPokemons',
-    pathname: searchValue,
-  })
+  const [{ data, isLoading, error }, doFetch] = useData()
+  const [total, setTotal] = useState('')
 
-  console.log({ data })
+  // console.log({ data })
   useEffect(() => {
-    doFetch()
+    doFetch({
+      endpoint: searchValue ? 'getPokemonByNameOrId' : 'getPokemons',
+      uriSuffix: searchValue.toLowerCase() || '',
+    })
   }, [searchValue])
+
+  useEffect(() => {
+    data?.total && setTotal(data?.total)
+  }, [data])
 
   return (
     <div className={cl(s.root, t.root)}>
       <div className={cl(s.layout)}>
         <div className={cl(s.header)}>
-          {data?.total} <span className={cl('bold')}>Pokemons</span> for you to choose your favorite
+          {total} <span className={cl('bold')}>Pokemons</span> for you to choose your favorite
         </div>
 
         <form className={cl(s.search, t.search)}>
