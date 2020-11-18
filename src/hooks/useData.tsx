@@ -26,6 +26,8 @@ const useData = ({ endpoint = '', query = {}, pathname = '' } = {}): [
     setIsLoading(true)
   }
 
+  // sad;lfasdf;lkjsdfaa
+
   useEffect(() => {
     const getData = async () => {
       try {
