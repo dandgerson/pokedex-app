@@ -35,7 +35,7 @@ const Header = () => {
         )}>
         {routes.map(
           route =>
-            !['Page404'].includes(route.title) && (
+            !['Page404', 'Pokemon'].includes(route.title) && (
               <div
                 key={route.id}
                 className={cl(s.nav_item, t.nav_item, {
