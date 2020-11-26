@@ -20,7 +20,7 @@ const useData = (): [
   const [endpoint, setEndpoint] = useState('')
   const [query, setQuery] = useState(null)
   const [uriSuffix, setUriSuffix] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(null)
   const [error, setError] = useState<IError | null>(null)
 
   const doFetch = ({

@@ -7,7 +7,7 @@ import ellipse from 'images/ellipse.svg'
 import useData from 'hooks/useData'
 
 import Dropdown from 'components/Dropdown'
-import Card from './Card'
+import Card from 'components/Card'
 
 import s from './Pokedex.module.scss'
 import t from './main-theme.module.scss'
