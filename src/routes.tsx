@@ -19,22 +19,16 @@ const routes: Array<{
   id: string
   path: string
   title: string
-  isNavItem: boolean
+  isNavItem?: boolean
   withParams?: boolean
+  isExact?: boolean
   render: () => React.ReactNode
 }> = [
-  {
-    id: '6',
-    path: PathEnum.POKEMON,
-    title: 'Pokemon',
-    isNavItem: false,
-    withParams: true,
-    render: () => <Pokemon />,
-  },
   {
     id: '1',
     path: PathEnum.HOME,
     title: 'Home',
+    isExact: true,
     isNavItem: true,
     render: () => <Home />,
   },
@@ -42,6 +36,7 @@ const routes: Array<{
     id: '2',
     path: PathEnum.POKEDEX,
     title: 'Pokédex',
+    isExact: true,
     isNavItem: true,
     render: () => <Pokedex />,
   },
@@ -60,10 +55,15 @@ const routes: Array<{
     render: () => <Documentation />,
   },
   {
+    id: '6',
+    path: PathEnum.POKEMON,
+    title: 'Pokemon',
+    render: () => <Pokemon />,
+  },
+  {
     id: '5',
     path: '*',
     title: 'Page404',
-    isNavItem: true,
     render: () => <Page404 />,
   },
 ]

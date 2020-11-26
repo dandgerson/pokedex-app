@@ -17,17 +17,14 @@ const App = () => (
 
       <div className={cl(s.layout)}>
         <Switch>
-          {routes.map(
-            route =>
-              console.log({ route }) || (
-                <Route
-                  key={route.id}
-                  exact={route.path === '/'}
-                  path={route.path}
-                  render={() => route.render()}
-                />
-              ),
-          )}
+          {routes.map(route => (
+            <Route
+              key={route.id}
+              exact={route.isExact}
+              path={route.path}
+              render={() => route.render()}
+            />
+          ))}
         </Switch>
       </div>
 
