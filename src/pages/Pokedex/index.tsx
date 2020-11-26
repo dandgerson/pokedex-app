@@ -5,6 +5,7 @@ import SVG from 'react-inlinesvg'
 import ellipse from 'images/ellipse.svg'
 
 import useData from 'hooks/useData'
+import useDebounce from 'hooks/useDebounce'
 
 import Dropdown from 'components/Dropdown'
 import Card from 'components/Card'
@@ -16,14 +17,14 @@ const Pokedex = () => {
   const [searchValue, setSearchValue] = useState('')
   const [{ data, isLoading, error }, doFetch] = useData()
   const [total, setTotal] = useState('')
+  const [debouncedValue] = useDebounce(searchValue)
 
-  // console.log({ data })
   useEffect(() => {
     doFetch({
       endpoint: searchValue ? 'getPokemonByNameOrId' : 'getPokemons',
       uriSuffix: searchValue.toLowerCase() || '',
     })
-  }, [searchValue])
+  }, [debouncedValue])
 
   useEffect(() => {
     data?.total && setTotal(data?.total)

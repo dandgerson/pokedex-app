@@ -8,10 +8,9 @@ import Card from 'components/Card'
 import s from './Pokemon.module.scss'
 // import t from './main-theme.module.scss'
 
-
 const Pokemon: React.FC = () => {
   const { id } = useParams()
-  const [{ data, isLoading, error }, doFetch] = useData()
+  const [{ data }, doFetch] = useData()
 
   useEffect(() => {
     doFetch({
@@ -19,10 +18,6 @@ const Pokemon: React.FC = () => {
       uriSuffix: id,
     })
   }, [id])
-
-  console.log(data)
-
-  console.log(isLoading)
 
   return (
     <div className={cl(s.root)}>
