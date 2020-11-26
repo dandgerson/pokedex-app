@@ -14,7 +14,7 @@ const useData = (): [
     isLoading: boolean
     error: IError | null
   },
-  () => void,
+  (arg0: object) => void,
 ] => {
   const [data, setData] = useState(null)
   const [endpoint, setEndpoint] = useState('')

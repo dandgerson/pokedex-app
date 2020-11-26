@@ -31,8 +31,13 @@ class PokeApiHandler {
     )
   }
 
-  // eslint-disable-next-line consistent-return
-  getPokemonByNameOrId = async ({ setData, uriSuffix: nameOrId }) => {
+  getPokemonByNameOrId = async ({
+    setData,
+    uriSuffix: nameOrId,
+  }: {
+    setData?: (arg0: object) => void
+    uriSuffix: string
+  }) => {
     const pokemonRes = await request({
       endpoint: 'getPokemonByNameOrId',
       uriSuffix: nameOrId,
@@ -52,10 +57,17 @@ class PokeApiHandler {
         },
       ],
     })
+
+    return undefined
   }
 
-  // eslint-disable-next-line consistent-return
-  getPokemonSpecies = async ({ setData, uriSuffix: nameOrId }) => {
+  getPokemonSpecies = async ({
+    setData,
+    uriSuffix: nameOrId,
+  }: {
+    setData?: (arg0: object) => void
+    uriSuffix: string
+  }) => {
     const response = await request({
       endpoint: 'getPokemonSpecies',
       uriSuffix: nameOrId,
@@ -64,6 +76,8 @@ class PokeApiHandler {
     if (!setData) return response
 
     setData({ pokemonSpecies: response.data })
+
+    return undefined
   }
 }
 
