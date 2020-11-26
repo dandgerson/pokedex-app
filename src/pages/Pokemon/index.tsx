@@ -7,8 +7,10 @@ import s from './Pokemon.module.scss'
 
 const Pokemon: React.FC = () => {
   const location = useLocation()
+
+  console.log({ location })
   const { id } = useParams()
-  console.log({ id })
+  // console.log({ id })
 
   return (
     <div className={cl(s.root)}>

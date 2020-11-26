@@ -24,6 +24,14 @@ const routes: Array<{
   render: () => React.ReactNode
 }> = [
   {
+    id: '6',
+    path: PathEnum.POKEMON,
+    title: 'Pokemon',
+    isNavItem: false,
+    withParams: true,
+    render: () => <Pokemon />,
+  },
+  {
     id: '1',
     path: PathEnum.HOME,
     title: 'Home',
@@ -50,14 +58,6 @@ const routes: Array<{
     title: 'Documentation',
     isNavItem: true,
     render: () => <Documentation />,
-  },
-  {
-    id: '6',
-    path: PathEnum.POKEMON,
-    title: 'Pokemon',
-    isNavItem: false,
-    withParams: true,
-    render: () => <Pokemon />,
   },
   {
     id: '5',
