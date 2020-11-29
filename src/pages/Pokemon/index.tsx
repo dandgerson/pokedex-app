@@ -15,7 +15,10 @@ const Pokemon: React.FC = () => {
   useEffect(() => {
     doFetch({
       endpoint: 'getPokemonByNameOrId',
-      uriSuffix: id,
+      query: {
+        nameOrId: id,
+      },
+      // uriSuffix: id,
     })
   }, [id])
 

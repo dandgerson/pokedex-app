@@ -22,7 +22,10 @@ const Pokedex = () => {
   useEffect(() => {
     doFetch({
       endpoint: searchValue ? 'getPokemonByNameOrId' : 'getPokemons',
-      uriSuffix: searchValue.toLowerCase() || '',
+      // uriSuffix: searchValue.toLowerCase() || '',
+      query: {
+        ...(searchValue ? { nameOrId: searchValue.toLowerCase() } : {}),
+      },
     })
   }, [debouncedValue])
 
