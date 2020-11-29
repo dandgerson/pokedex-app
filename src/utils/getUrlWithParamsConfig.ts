@@ -1,6 +1,6 @@
 import { config } from 'config'
 
-const resolvePathnameAndQuery = ({ query, pathname }) =>
+export const resolvePathnameAndQuery = ({ query, pathname }) =>
   Object.keys(query).reduce(
     (acc, current) =>
       pathname.includes(`{${current}}`)
