@@ -20,7 +20,7 @@ const App = () => (
           {routes.map(route => (
             <Route
               key={route.id}
-              exact={route.path === '/'}
+              exact={route.isExact}
               path={route.path}
               render={() => route.render()}
             />

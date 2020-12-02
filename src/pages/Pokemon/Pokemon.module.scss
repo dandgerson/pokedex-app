@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 0;
+
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+}

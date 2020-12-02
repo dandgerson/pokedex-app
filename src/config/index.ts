@@ -14,13 +14,13 @@ export const config = {
       getPokemonByNameOrId: {
         method: 'GET',
         uri: {
-          pathname: '/api/v2/pokemon/',
+          pathname: '/api/v2/pokemon/{nameOrId}',
         },
       },
       getPokemonSpecies: {
         method: 'GET',
         uri: {
-          pathname: '/api/v2/pokemon-species/',
+          pathname: '/api/v2/pokemon-species/{nameOrId}',
         },
       },
     },

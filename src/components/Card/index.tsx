@@ -1,12 +1,16 @@
 import React from 'react'
 import cl from 'classnames'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import s from './Card.module.scss'
 import t from './main-theme.module.scss'
 
 const Card = ({ data }) => {
+  const history = useHistory()
+  const location = useLocation()
+
   return (
-    <div className={cl(s.root)}>
+    <div className={cl(s.root)} onClick={() => history.push(`${location.pathname}/${data.id}`)}>
       <div className={s.infoWrap}>
         <div className={cl('h3', s.titleName)}>{data.name}</div>
         <div className={s.statWrap}>
